@@ -5,6 +5,7 @@ from subprocess import Popen
 from source import _initializer as init
 from source import _log as log
 from time import sleep
+from datetime import datetime
 
 
 # 1. initialize keyword, count
@@ -20,15 +21,16 @@ with open(f'{jsonpath}', 'r', encoding='utf-8') as setting:
 
 # 2. start process
 while True:
-    log.log('::: Starting counter.py ...')
+    log.log(f'\n::: Starting counter.py ... {datetime.now().isoformat()}')
 
     p = Popen(f'python3 {filepath} {keyword} {prev_count}', shell=True)
 
     # Below is for Windows Use
     # p = Popen(f'python {filename}.py', shell=True)
 
-    p.wait()
+    returncode = p.wait()
 
-    log.log('::: Finished counter.py ...')
-    log.log('')
+    log.log(f'::: Finished counter.py ... {datetime.now().isoformat()}')
+    log.log(f'::: Process finished with return code {returncode}\n')
+
     sleep(5)

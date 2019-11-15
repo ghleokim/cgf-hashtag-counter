@@ -20,7 +20,7 @@ with open(f'{jsonpath}', 'r', encoding='utf-8') as setting:
 
 # 2. start process
 while True:
-    log.log('Starting counter.py ...')
+    log.log('::: Starting counter.py ...')
 
     p = Popen(f'python3 {filepath} {keyword} {prev_count}', shell=True)
 
@@ -29,5 +29,6 @@ while True:
 
     p.wait()
 
-    log.log('Finished counter.py ...')
+    log.log('::: Finished counter.py ...')
+    log.log('')
     sleep(5)

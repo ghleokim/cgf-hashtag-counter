@@ -5,6 +5,9 @@ from ._initializer import BASE_DIR
 
 
 def log(message):
+    with open(f'{BASE_DIR}/log/log', 'a', encoding='utf-8') as f:
+        f.write(message + '\n')
+
     print(message)
 
 

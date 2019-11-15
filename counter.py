@@ -17,9 +17,9 @@ log.log_history_mkdir(keyword)
 while True:
     count, log_message, data = req.makeRequest(keyword)
     if prev_count != count:
-        log.log(f'difference {count-prev_count}')
+        log.log(f'      difference {count-prev_count}')
     else:
-        log.log(f'no difference')
+        log.log(f'      no difference')
 
     prev_count = count
     log.log_count(count, keyword)
